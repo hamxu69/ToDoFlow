@@ -1,0 +1,190 @@
+body {
+  
+background: rgb(43,90,240);
+background: linear-gradient(180deg, rgba(43,90,240,1) 0%, rgba(77,88,214,1) 5%, rgba(187,81,130,1) 36%, rgba(221,79,104,1) 48%, rgba(255,77,77,0.8289443455385358) 82%);
+  animation: neonGlow 6s ease infinite;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: Arial, sans-serif;
+  position: relative;
+  margin: 0px;
+}
+
+.header {
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  background: #f0eeee;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  height: 70vh;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 90%;
+  align-items: center;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.inputText {
+  width: 50%;
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease;
+}
+
+.inputText:focus {
+  border-color: #ff4d4d; /* Set border color to match background */
+  outline: none;
+  box-shadow: 0 0 10px 3px rgba(255, 77, 77, 0.5); /* Soft red shadow with spread */
+}
+
+
+button {
+  background-color: #00C2ED;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+button:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+button[type="reset"] {
+  background-color: #ff4d4d;
+}
+
+button[type="reset"]:hover {
+  background-color: #fa3838;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 80%;
+  margin-top: 20px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  word-wrap: break-word;
+  overflow-y: scroll;
+}
+
+.container div {
+  text-wrap: wrap;
+  font-size: 16px;
+  color: #333;
+}
+
+.container button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.container button:hover {
+  background-color: #f83e3e;
+}
+
+#noTasks {
+  width: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fdfdfd;
+  text-align: center;
+  margin: 20px 0;
+  display: block;
+  background-color: #ff4d4d;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+#Tasks {
+  width: 40%;
+  font-size: 32px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  margin: 20px 0;
+  display: block;
+  background-color: #ff4d4d;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.childCont {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  width: 90%;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.2);
+  flex-direction: row;
+  align-items: center;
+}
+
+.test {
+  margin-left: 40px;
+  display: flex;
+  width: 80%;
+  border-radius: 20px;
+  padding: 8px;
+  background-color: #f0f0f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.butCont {
+  display: flex;
+  gap: 5px;
+}
+
+.check {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 2px solid rgba(0, 194, 237);
+  border-radius: 50%;
+}
+
+.check.uncheck {
+  position: absolute;
+  background-image: url(icons8-tick.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 26px;
+  height: 26px;
+  padding: 0px;
+  box-shadow: 1px 1px 10px rgba(0, 194, 237, 0.9);
+}
