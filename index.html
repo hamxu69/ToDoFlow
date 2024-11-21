@@ -25,15 +25,17 @@
     </div>
     <script>
       const inputField = document.querySelector(".inputText");
-    
-      function clear() {
-        inputField.value = "";
-      }
-    
-      function save() {
-        if (inputField.value === "") {
-          alert("The input field is empty!");
-        } else {
+      inputField.addEventListener("input", () => {
+  inputField.style.borderColor = ''; 
+});
+function clear() {
+  inputField.value = "";
+}
+function save() {  if (inputField.value === "" ) {
+    inputField.style.borderColor = "red"; 
+    inputField.style.borderWidth = "2px"; 
+    alert("Add a Task first!")
+  }else {
           const newContainer = document.createElement("div");
           const newText = document.createElement("div");
           const checkDiv = document.createElement("div");
