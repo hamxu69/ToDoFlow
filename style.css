@@ -201,17 +201,36 @@ button[type="reset"]:hover {
 @media (max-width: 768px) {
   /* Styles for screens with a width of 768px or less */
   body {
-    font-size: 14px;
-    padding: 10px;
+    body {
+      background: rgb(43, 90, 240);
+      background: linear-gradient(
+        180deg,
+        rgba(43, 90, 240, 1) 0%,
+        rgba(77, 88, 214, 1) 5%,
+        rgba(187, 81, 130, 1) 36%,
+        rgba(221, 79, 104, 1) 48%,
+        rgba(255, 77, 77, 0.8289443455385358) 82%
+      );
+      animation: neonGlow 6s ease infinite;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: Arial, sans-serif;
+      position: relative;
+      margin: 0px;
+      padding: 0px;
+    }
   }
   .header {
-    width: 90%;
+    width: 80%;
   }
   .inputText {
     width: 90%;
   }
   form {
-    width: 90%;
+    width: 80%;
   }
   .butCont {
     margin-top: 10px;
