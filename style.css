@@ -222,4 +222,6 @@ button[type="reset"]:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-
+body:has(.childCont) #noTasks {
+    display: none;
+}
