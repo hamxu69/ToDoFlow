@@ -1,5 +1,5 @@
 const boxDiv = document.querySelector(".box");
-
+// add local storage here
 let x = 0;
 let y = 0;
 
