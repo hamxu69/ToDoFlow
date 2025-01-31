@@ -70,7 +70,7 @@
     font-size: 8vw;
   }
   .date-update {
-    font-size: 3vw;
+    font-size: 5vw;
   }
   .dateInput {
     width: 100vw;
@@ -205,5 +205,6 @@
   .pop {
     padding: 1vw 3vw !important;
     font-size: 2vw !important;
+    border: none;
   }
 }
