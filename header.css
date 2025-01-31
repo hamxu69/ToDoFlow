@@ -120,7 +120,7 @@ body {
 
 .inputBtn:active {
   background: #506eec;
-  color: white;
+  color: rgba(255, 255, 255, 0.993);
 }
 .pop {
   display: none;
