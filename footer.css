@@ -34,7 +34,7 @@
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.07);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
 }
 .checkbox-wrapper-15 .cbx {

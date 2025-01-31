@@ -50,9 +50,9 @@ function pushToLocal() {
   filteredCount();
 }
 function render(filteredArr) {
-  let html = "";
+  let html = '';
   if (filteredArr.length === 0) {
-    html += `<img src="task.png" style="position:absolute; top:50%;">`;
+    html += `<img src="empty.png" style="position:absolute; top:50%;">`;
   } else {
     filteredArr.forEach((el) => {
       html += `<div class="taskDiv"  id="task-${el.id}">
