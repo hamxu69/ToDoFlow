@@ -30,7 +30,7 @@
   justify-content: center;
   align-items: center;
   width: 90vw;
-  padding: 10px 20px 0px 20px;
+  padding: 5vw 5vw 0px 5vw;
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   border-radius: 10px;
@@ -136,8 +136,6 @@
 }
 .main {
   color: #383838;
-  margin: 2vh;
-  font-size: 3vw;
 }
 
 .top {
@@ -147,7 +145,7 @@
   align-items: center;
 }
 .line {
-  margin: 1vh 0px 0px 0px;
+  margin: 2vh 0px 0px 0px;
   height: 2px;
   width: 100%;
   border-radius: 50px;
@@ -174,7 +172,7 @@ svg:active {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1vh;
+  margin: 1.5vh;
 }
 .bottom div {
   color: #8b8b91;
