@@ -8,6 +8,12 @@ const personalCount = document.querySelector("#personalCount");
 const workCount = document.querySelector("#workCount");
 const hobbiesCount = document.querySelector("#hobbiesCount");
 const tasklist = document.querySelector("#taskAppend");
+const formattedDate = new Date().toLocaleDateString("en-US", {
+  weekday: "long",
+  day: "numeric",
+  month: "short",
+});
+
 let localArr = JSON.parse(localStorage.getItem("localArr")) || [];
 function inputPopup() {
   popUp.style.display === "none" && sheet.style.display === "none"
@@ -24,11 +30,17 @@ function addTask() {
 }
 function pushToLocal() {
   const newId = localArr.length || 0;
+  const newtime = new Date().toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  });
   let obj = {
     task: inputValue.value.charAt(0).toUpperCase() + inputValue.value.slice(1),
     category: Category.value,
     checkStatus: "unchecked",
     id: newId,
+    time: newtime,
   };
   localArr.push(obj);
   localStorage.setItem("localArr", JSON.stringify(localArr));
@@ -82,7 +94,7 @@ function render(filteredArr) {
             </div>
             <div class="line"></div>
             <div class="bottom">
-              <div>Added at: 10:00PM</div>
+              <div>Added at: ${el.time}</div>
               <div class="category"> ${el.category}</div>
             </div>
           </div>`;
@@ -115,6 +127,8 @@ function filterArr(type) {
     let hobbiesArr = localArr.filter((el) => el.category == "Hobbies");
     render(hobbiesArr);
   }
+  document.querySelector("#date").textContent = formattedDate;
+
 }
 function filteredCount() {
   let hobbies = 0;
@@ -149,11 +163,11 @@ function toggleStatus(target) {
 function showPopup() {
   const popup = document.getElementById("popup");
   popup.style.display = "block";
-  
+
   setTimeout(() => {
     popup.classList.add("show");
   }, 10);
-  
+
   setTimeout(() => {
     popup.classList.remove("show");
     setTimeout(() => {
@@ -164,11 +178,11 @@ function showPopup() {
 function showWarningPopup() {
   const warningPopup = document.getElementById("warningPopup");
   warningPopup.style.display = "block";
-  
+
   setTimeout(() => {
     warningPopup.classList.add("show");
   }, 10);
-  
+
   setTimeout(() => {
     warningPopup.classList.remove("show");
     setTimeout(() => {
