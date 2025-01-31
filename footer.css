@@ -16,7 +16,7 @@
 }
 
 .taskList::-webkit-scrollbar-thumb {
-  background-color: rgba(80, 80, 80, 0.288);
+  background-color: rgba(80, 80, 80, 0.301);
   border-radius: 10px;
 }
 
