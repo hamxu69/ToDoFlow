@@ -1,4 +1,4 @@
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 380px) {
   .parent {
     background-color: rgb(255, 255, 255);
     width: 100vw;
@@ -28,7 +28,7 @@
     height: 3vh;
   }
   .main {
-    font-size: 5vw !important;
+    font-size: 3vw !important;
   }
   .inputBtn {
     padding: 3vw;
@@ -55,7 +55,7 @@
   }
 
 }
-@media only screen and (min-width: 480px) and (max-width: 1025px) {
+@media only screen and (min-width: 380px) and (max-width: 1025px) {
   .parent {
     background-color: rgb(255, 255, 254);
     width: 100vw;
@@ -88,7 +88,7 @@
     height: 60vh !important;
   }
   .main {
-    font-size: 4vw !important;
+    font-size: 3vw !important;
   }
   .inputBtn {
     padding: 2vw;
