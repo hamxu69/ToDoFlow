@@ -98,15 +98,14 @@
 .checkbox-wrapper-15 .cbx span:last-child:after {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 52%;
   left: 0;
-  height: 1px;
+  height: 2px;
   width: 100%;
-  background: #5a5a5a;
+  background: #8b8b91;
   transform-origin: 0 0;
   transform: scaleX(0);
 }
-
 .checkbox-wrapper-15 .cbx:hover span:first-child {
   border-color: #3c53c7;
 }
