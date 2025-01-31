@@ -49,11 +49,10 @@ function pushToLocal() {
   filterArr("All");
   filteredCount();
 }
-
 function render(filteredArr) {
   let html = "";
   if (filteredArr.length === 0) {
-    html += `<img src="empty.png" style="position:absolute; top:50%;">`;
+    html += `<img src="noTask.png" style="position:absolute; top:50%;">`;
   } else {
     filteredArr.forEach((el) => {
       html += `<div class="taskDiv"  id="task-${el.id}">
@@ -110,6 +109,7 @@ function deletebtn(target) {
   filterArr("All");
 }
 function filterArr(type) {
+  activeCategory(type);
   filteredCount();
   if (type === "All") {
     let allArr = localArr;
@@ -128,7 +128,6 @@ function filterArr(type) {
     render(hobbiesArr);
   }
   document.querySelector("#date").textContent = formattedDate;
-
 }
 function filteredCount() {
   let hobbies = 0;
@@ -153,6 +152,16 @@ function filteredCount() {
   personalCount.textContent = personal;
   workCount.textContent = work;
   hobbiesCount.textContent = hobbies;
+}
+function activeCategory(type) {
+  const allBtns = document.querySelectorAll(".categories button");
+  allBtns.forEach((btn) => {
+    if (btn.id === type) {
+      btn.classList.add("active");
+    } else {
+      btn.classList.remove("active");
+    }
+  });
 }
 function toggleStatus(target) {
   let status = localArr[target].checkStatus;
