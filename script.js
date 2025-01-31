@@ -170,7 +170,7 @@ function toggleStatus(target) {
   localStorage.setItem("localArr", JSON.stringify(localArr));
 }
 function showPopup() {
-  const popup = document.getElementById("popup");
+  let popup = document.getElementById("popup");
   popup.style.display = "block";
 
   setTimeout(() => {
