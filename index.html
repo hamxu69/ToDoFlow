@@ -3,122 +3,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>New Todo</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="test.css" />
+    <title>Todos</title>
+    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="Responsive.css" />
+    <link rel="stylesheet" href="footer.css" />
   </head>
   <body>
-    <div class="parent">
-      <div class="header">
-        <p>Today's Task</p>
+    <div id="warningPopup" class="warning-popup">
+      Please enter a task!
+    </div>
+    <div id="popup" class="pop">
+      Task Added successfully
+    </div>
+    <div class="popup-overlay" id="sheet" style="display: none"></div>
+    <div class="popup" id="popUp" style="display: none">
+      <div class="header2">
+        <p>Add Task</p>
       </div>
-      <div class="sheet"></div>
-      <div class="popup">
-        <div class="headertask">"Add Task"</div>
-        <div class="background">
-          <label for="taskText" class="input-label">Enter your task:</label>
-          <input
-            id="taskText"
-            class="tasktext"
-            type="text"
-            placeholder="Enter your task..."
-          />
+      <div class="content">
+        <label for="taskText">Task Title (Max 30 chars):</label>
+        <input
+          type="text"
+          id="taskText"
+          class="input"
+          placeholder="Enter task..."
+          maxlength="30"
+        />
 
-          <label for="taskCategory" class="input-label">Select category:</label>
-          <select id="taskCategory" class="taskcategory">
-            <option value="personal">Personal</option>
-            <option value="work">Work</option>
-            <option value="hobbies">Hobbies</option>
-          </select>
-
-          <div class="buttons">
-            <button class="tasksave">Add</button>
-            <button class="taskcancel">Cancel</button>
-          </div>
-        </div>
+        <label for="taskCategory">Category:</label>
+        <select id="taskCategory" class="select">
+          <option value="" hidden>Select Category</option>
+          <option value="Personal">Personal</option>
+          <option value="Work">Work</option>
+          <option value="Hobbies">Hobbies</option>
+        </select>
       </div>
-
-      <div class="child">
-        <div class="inputBox">
-          <div class="box1">
-            <p class="status">Today's Task</p>
-            <p class="smallText">Tuesday, 28 January</p>
-          </div>
-          <div class="box2">
-            <button class="newTask">+ New Task</button>
-          </div>
-        </div>
-        <div class="category">
-          <button class="cat" id="allCategory">
-            <p class="smallText">All</p>
-            <div class="word">
-              <p class="smallText" id="allCount">69</p>
-            </div>
-          </button>
-          <button class="cat" id="workCategory">
-            <p class="smallText">Work</p>
-            <div class="word">
-              <p class="smallText" id="workCount">69</p>
-            </div>
-          </button>
-          <button class="cat" id="personalCategory">
-            <p class="smallText">Personal</p>
-            <div class="word">
-              <p class="smallText" id="personalCount">69</p>
-            </div>
-          </button>
-          <button class="cat" id="hobbiesCategory">
-            <p class="smallText">Hobbies</p>
-            <div class="word">
-              <p class="smallText" id="hobbiesCount">69</p>
-            </div>
-          </button>
-        </div>
-        <div class="Append" id="taskList">
-          <div class="task" id="task1">
-            <div class="info">
-              <div class="checkbox-wrapper-15">
-                <input
-                  class="inp-cbx"
-                  id="cbx-15-1"
-                  type="checkbox"
-                  style="display: none"
-                />
-                <label class="cbx" for="cbx-15-1">
-                  <span>
-                    <svg width="12px" height="9px" viewbox="0 0 12 9">
-                      <polyline points="1 5 4 8 11 1"></polyline>
-                    </svg>
-                  </span>
-                  <span class="font">We will finish this project today.</span>
-                </label>
-                <div class="catone">
-                  <p>Category: Personal</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="line"></div>
-            <div class="actions">
-              <div class="time">
-                <p>Added at: 10:00 PM</p>
-              </div>
-              <button class="deleteBtn">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                  <path
-                    d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
+      <div class="buttons">
+        <button class="btn add" onclick="addTask()">Add</button>
+        <button class="btn cancel" onclick="inputPopup()">Cancel</button>
       </div>
     </div>
+    <div class="parent">
+      <div class="header">
+        <div class="dateInput">
+          <div class="date">
+            <p class="task-td">Today's Task</p>
+            <p class="date-update">Wednesday, 11 May</p>
+          </div>
+          <button class="inputBtn" onclick="inputPopup()">+ New Task</button>
+        </div>
+        <div class="categories">
+          <button onclick="filterArr('All')">
+            All<span id="allCount">0</span>
+          </button>
+          <button onclick="filterArr('Personal')">
+            Personal <span id="personalCount">0</span>
+          </button>
+          <button onclick="filterArr('Work')">
+            Work <span id="workCount">0</span>
+          </button>
+          <button onclick="filterArr('Hobbies')">
+            Hobbies <span id="hobbiesCount">0</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="taskList" id="taskAppend"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  
   </body>
 </html>

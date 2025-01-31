@@ -1,0 +1,209 @@
+@media only screen and (min-width: 100px) and (max-width: 480px) {
+  .parent {
+    background-color: rgb(255, 255, 255);
+    width: 100vw;
+    height: 100vh;
+  }
+  .categories button {
+    height: 5.3vh;
+    font-size: 2vh;
+    gap: 1vw;
+  }
+  .task-td {
+    font-size: 10vw;
+  }
+  .date-update {
+    font-size: 5vw;
+  }
+  .dateInput {
+    width: 100vw;
+    height: 20vh;
+    gap: 0;
+  }
+  .checkbox-wrapper-15 .cbx span:first-child {
+    width: 6vw !important;
+    height: 6vw !important;
+  }
+  svg {
+    height: 3vh;
+  }
+  .main {
+    font-size: 5vw !important;
+  }
+  .inputBtn {
+    padding: 3vw;
+    font-size: 4vw;
+  }
+  .header2 p {
+    margin: 0;
+    font-size: 5vw !important;
+  }
+  .btn {
+    font-size: 4vw !important;
+  }
+  .input,
+  .select {
+    font-size: 4vw !important;
+  }
+  .content label {
+    font-size: 4vw !important;
+  }
+  .popup {
+    width: 90vw !important;
+    top: 40% !important;
+    white-space: nowrap;
+  }
+
+}
+@media only screen and (min-width: 480px) and (max-width: 1025px) {
+  .parent {
+    background-color: rgb(255, 255, 255);
+    width: 100vw;
+    height: 100vh;
+  }
+  .categories button {
+    height: 7vh;
+    font-size: 3vw;
+    gap: 1vw;
+  }
+  .task-td {
+    font-size: 8vw;
+  }
+  .date-update {
+    font-size: 3vw;
+  }
+  .dateInput {
+    width: 100vw;
+    height: 30vh;
+    gap: 0;
+  }
+  .checkbox-wrapper-15 .cbx span:first-child {
+    width: 5vw !important;
+    height: 5vw !important;
+  }
+  svg {
+    height: 5vh;
+  }
+  .taskList {
+    height: 60vh !important;
+  }
+  .main {
+    font-size: 4vw !important;
+  }
+  .inputBtn {
+    padding: 2vw;
+    font-size: 3vw;
+  }
+  .bottom div {
+    font-size: 2.5vw !important;
+  }
+  .header2 p {
+    margin: 0;
+    font-size: 5vw !important;
+  }
+  .btn {
+    font-size: 3vw !important;
+  }
+  .input,
+  .select {
+    font-size: 3vw !important;
+  }
+  .content label {
+    font-size: 3vw !important;
+  }
+  .popup {
+    width: 60vw !important;
+    top: 40% !important;
+  }
+  .pop {
+    padding: 3vw 5vw;
+    font-size: 5vw;
+  }
+  .warning-popup {
+    padding: 3vw 5vw;
+    font-size: 5vw;
+  }
+  .warning-popup {
+    padding: 2vw 3vw !important;
+    font-size: 4vw !important;
+  }
+  .pop {
+    padding: 2vw 3vw !important;
+    font-size: 4vw !important;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  .parent {
+    background-color: rgb(255, 255, 255);
+    width: 50vw !important;
+    height: 100vh;
+  }
+  .categories button {
+    height: 7vh;
+    font-size: 1.5vw;
+    gap: 1vw;
+  }
+  .task-td {
+    font-size: 3vw;
+  }
+  .date-update {
+    font-size: 2vw;
+  }
+  .dateInput {
+    height: 30vh;
+    gap: 0;
+  }
+  .checkbox-wrapper-15 .cbx span:first-child {
+    width: 2.3vw !important;
+    height: 2.3vw !important;
+  }
+  svg {
+    height: 5vh;
+  }
+  .taskList {
+    height: 60vh !important;
+  }
+  .main {
+    font-size: 2vw !important;
+  }
+  .inputBtn {
+    padding: 1vw;
+    font-size: 2vw;
+  }
+  .bottom div {
+    font-size: 2vw !important;
+  }
+  .taskDiv {
+    width: 90% !important;
+  }
+  .bottom div {
+    font-size: 1.4vw !important;
+  }
+  .header2 p {
+    margin: 0;
+    font-size: 2vw !important;
+  }
+  .btn {
+    font-size: 1vw !important;
+  }
+  .input,
+  .select {
+    font-size: 1vw !important;
+  }
+  .content label {
+    font-size: 1vw !important;
+    margin: 5px !important;
+  }
+  .popup {
+    position: absolute;
+    width: 25vw !important;
+  }
+  .warning-popup {
+    padding: 1vw 3vw !important;
+    font-size: 2vw !important;
+  }
+  .pop {
+    padding: 1vw 3vw !important;
+    font-size: 2vw !important;
+  }
+}
