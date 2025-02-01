@@ -8,8 +8,8 @@ self.addEventListener("install", (event) => {
           "./Responsive.css",
           "./script.js",
           "./manifest.json",
-          "./icons/icon-192x192.png",
-          "./icons/icon-512x512.png"
+          "./icons/icon-app.png",
+          "./icons/icon-start.png"
         ]);
       })
     );
