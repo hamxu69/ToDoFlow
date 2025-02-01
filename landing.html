@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Download Our App</title>
-    <link rel="manifest" href="manifest.json" />
-    <script defer src="script.js"></script>
+
     <style>
       * {
         margin: 0;
@@ -47,7 +46,7 @@
       }
 
       #install-btn {
-        display: none;
+        display: none; /* Initially hidden */
         padding: 12px 20px;
         font-size: 18px;
         background: #506eec;
@@ -68,13 +67,49 @@
         background: #3c53c7;
         color: white;
       }
+
+      #install-btn:disabled {
+        background: #b0b0b0;
+        color: #ffffff;
+        cursor: not-allowed;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <h1>Welcome to Our To-Do App!</h1>
       <p>Download our app to keep track of your tasks.</p>
-      <button id="install-btn">Install App</button>
+      <button id="install-btn">Download</button>
     </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let deferredPrompt;
+        const installBtn = document.getElementById("install-btn");
+
+        // Listen for the beforeinstallprompt event
+        window.addEventListener("beforeinstallprompt", (event) => {
+          console.log("beforeinstallprompt event triggered"); // Debugging line
+          event.preventDefault();
+          deferredPrompt = event;
+          installBtn.style.display = "inline-block"; // Make the button visible
+        });
+
+        installBtn.addEventListener("click", () => {
+          if (deferredPrompt) {
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+              if (choiceResult.outcome === "accepted") {
+                console.log("User installed the app");
+                installBtn.innerText = "Downloaded"; // Change the button text
+                installBtn.style.backgroundColor = "#506eec"; // Turn button blue
+                installBtn.disabled = true; // Disable the button after installation
+              }
+              deferredPrompt = null;
+            });
+          }
+        });
+      });
+    </script>
   </body>
 </html>

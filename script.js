@@ -207,28 +207,6 @@ if ("serviceWorker" in navigator) {
     .then(() => console.log("Service Worker Registered"))
     .catch((err) => console.log("Service Worker Failed", err));
 }
-let deferredPrompt;
-
-window.addEventListener("beforeinstallprompt", (event) => {
-  event.preventDefault(); // Prevent the default install banner
-  deferredPrompt = event; // Store the event for later
-
-  // Add event listener to the body or any element to trigger the install prompt on user interaction
-  document.body.addEventListener("click", () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt(); // Show the install prompt
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === "accepted") {
-          console.log("User installed the app");
-        } else {
-          console.log("User dismissed the install prompt");
-        }
-        deferredPrompt = null; // Clear the deferred prompt
-      });
-    }
-  });
-});
-
 window.onload = () => {
   filterArr("All");
 };
