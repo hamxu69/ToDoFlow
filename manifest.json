@@ -1,7 +1,7 @@
 {
   "name": "Todos by Hamza",
   "short_name": "Todos",
-  "start_url": "./index.html",
+  "start_url": "./landing.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",

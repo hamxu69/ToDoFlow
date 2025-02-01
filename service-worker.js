@@ -2,7 +2,7 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open("todo-app-cache").then((cache) => {
       return cache.addAll([
-        "./index.html",
+        "./landing.html",
         "./footer.css",
         "./header.css",
         "./Responsive.css",

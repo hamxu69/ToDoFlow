@@ -1,84 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Todos</title>
     <meta charset="UTF-8" />
-    <meta name="theme-color" content="#f7f7f7">
-    <link rel="manifest" href="manifest.json">
-    <link type="image/png" sizes="16x16" rel="icon" href="icons8-checkmark-glyph-neue-16.png"> <link type="image/png" sizes="32x32" rel="icon" href="icons8-checkmark-glyph-neue-32.png"> <link type="image/png" sizes="96x96" rel="icon" href="icons8-checkmark-glyph-neue-96.png"> <link type="image/png" sizes="120x120" rel="icon" href="icons8-checkmark-glyph-neue-120.png"> <link type="image/png" sizes="72x72" rel="icon" href="icons8-checkmark-glyph-neue-72.png"> <link type="image/png" sizes="96x96" rel="icon" href="icons8-checkmark-glyph-neue-96.png"> <link type="image/png" sizes="144x144" rel="icon" href="icons8-checkmark-glyph-neue-144.png"> <link type="image/png" sizes="192x192" rel="icon" href="icons8-checkmark-glyph-neue-192.png"> <link type="image/png" sizes="512x512" rel="icon" href="icons8-checkmark-glyph-neue-512.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="header.css" />
-    <link rel="stylesheet" href="Responsive.css" />
-    <link rel="stylesheet" href="footer.css" />
+    <title>Download Our App</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Lato", "Lucida Sans", sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        background-color: #cccccc50;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .container {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 500px;
+      }
+
+      h1 {
+        color: #3c53c7;
+        margin-bottom: 10px;
+        font-size: 24px;
+      }
+
+      p {
+        color: #474747;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      #install-btn {
+        display: none; /* Initially hidden */
+        padding: 12px 20px;
+        font-size: 18px;
+        background: #506eec;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      #install-btn:hover {
+        background: white;
+        color: #506eec;
+        border: 1px solid #506eec;
+      }
+
+      #install-btn:active {
+        background: #3c53c7;
+        color: white;
+      }
+
+      #install-btn:disabled {
+        background: #b0b0b0;
+        color: #ffffff;
+        cursor: not-allowed;
+      }
+    </style>
   </head>
   <body>
-    <div id="warningPopup" class="warning-popup">
-      Please enter a task!
-    </div>
-    <div id="popup" class="pop">
-      Task Added successfully
-    </div>
-    <div class="popup-overlay" id="sheet" style="display: none"></div>
-    <div class="popup" id="popUp" style="display: none">
-      <div class="header2">
-        <p>Add Task</p>
-      </div>
-      <div class="content">
-        <label for="taskText">Task Title (Max 30 chars):</label>
-        <input
-          type="text"
-          id="taskText"
-          class="input"
-          placeholder="Enter your task...."
-          maxlength="30"
-        />
-
-        <label for="taskCategory">Category:</label>
-        <select id="taskCategory" class="select">
-          <option value="" hidden>Select Category</option>
-          <option value="Personal">Personal</option>
-          <option value="Work">Work</option>
-          <option value="Hobbies">Hobbies</option>
-        </select>
-      </div>
-      <div class="buttons">
-        <button class="btn add" onclick="addTask()">Add</button>
-        <button class="btn cancel" onclick="inputPopup()">Cancel</button>
-      </div>
-    </div>
-    <div class="parent">
-      <div class="header">
-        <div class="dateInput">
-          <div class="date">
-            <p class="task-td">Today's Task</p>
-            <p class="date-update" id="date"></p>
-          </div>
-          <button class="inputBtn" onclick="inputPopup()">+ New Task</button>
-        </div>
-        <div class="categories">
-          <button id="All" onclick="filterArr('All')">
-            All<span id="allCount">0</span>
-          </button>
-          <button id="Personal" onclick="filterArr('Personal')">
-            Personal <span id="personalCount">0</span>
-          </button>
-          <button id="Work" onclick="filterArr('Work')">
-            Work <span id="workCount">0</span>
-          </button>
-          <button id="Hobbies" onclick="filterArr('Hobbies')">
-            Hobbies <span id="hobbiesCount">0</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="footer">
-        <div class="taskList" id="taskAppend"></div>
-      </div>
+    <div class="container">
+      <h1>Welcome to Our To-Do App!</h1>
+      <p>Download our app to keep track of your tasks.</p>
+      <button id="install-btn">Download</button>
     </div>
     <script src="script.js"></script>
-  
   </body>
 </html>
