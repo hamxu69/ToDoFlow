@@ -209,31 +209,23 @@ if ("serviceWorker" in navigator) {
 }
 let deferredPrompt;
 
-window.addEventListener('beforeinstallprompt', (event) => {
-  // Prevent the default install prompt from showing
-  event.preventDefault();
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault(); // Prevent the default install banner
+  deferredPrompt = event; // Store the event for later
 
-  // Storing the event for later use
-  deferredPrompt = event;
-
-  // Show the install button
-  const installButton = document.getElementById('install-btn');
-  installButton.style.display = 'block'; // Show the button when install prompt is available
-
-  // Handle button click
-  installButton.addEventListener('click', () => {
-    // Show the install prompt
-    deferredPrompt.prompt();
-
-    // Wait for the user to respond to the prompt
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('User installed the app');
-      } else {
-        console.log('User dismissed the install prompt');
-      }
-      deferredPrompt = null; // Reset the prompt
-    });
+  // Add event listener to the body or any element to trigger the install prompt on user interaction
+  document.body.addEventListener("click", () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt(); // Show the install prompt
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === "accepted") {
+          console.log("User installed the app");
+        } else {
+          console.log("User dismissed the install prompt");
+        }
+        deferredPrompt = null; // Clear the deferred prompt
+      });
+    }
   });
 });
 
