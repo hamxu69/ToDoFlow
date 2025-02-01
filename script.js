@@ -1,3 +1,51 @@
+document.addEventListener('DOMContentLoaded', () => {
+  let deferredPrompt; // Declare variable for the install prompt
+
+  // Listen for the beforeinstallprompt event
+  window.addEventListener('beforeinstallprompt', (event) => {
+    // Prevent the default install prompt
+    event.preventDefault();
+    // Store the event so it can be triggered later
+    deferredPrompt = event;
+    
+    // Show the install button
+    const installBtn = document.getElementById('install-btn');
+    installBtn.style.display = 'block'; // Show the install button when the event is fired
+    
+    // Listen for the button click to trigger the install prompt
+    installBtn.addEventListener('click', () => {
+      // Show the install prompt
+      deferredPrompt.prompt();
+      
+      // Wait for the user to respond to the prompt
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+        } else {
+          console.log('User dismissed the A2HS prompt');
+        }
+        // Reset the deferredPrompt variable
+        deferredPrompt = null;
+      });
+    });
+  });
+
+  // Optional: Show the install button after user scrolls
+  document.addEventListener('scroll', () => {
+    if (deferredPrompt) {
+      const installBtn = document.getElementById('install-btn');
+      installBtn.style.display = 'block'; // Show the button after scroll
+    }
+  });
+
+  // Alternatively, you can show the install button after a tap event
+  document.addEventListener('tap', () => {
+    if (deferredPrompt) {
+      const installBtn = document.getElementById('install-btn');
+      installBtn.style.display = 'block'; // Show the button after tap
+    }
+  });
+});
 const checkBox = document.querySelector("#checkBox");
 const sheet = document.querySelector("#sheet");
 const popUp = document.querySelector("#popUp");
@@ -207,27 +255,6 @@ if ("serviceWorker" in navigator) {
     .then(() => console.log("Service Worker Registered"))
     .catch((err) => console.log("Service Worker Failed", err));
 }
-let deferredPrompt;
-
-window.addEventListener("beforeinstallprompt", (event) => {
-  event.preventDefault(); // Prevent the default install banner
-  deferredPrompt = event; // Store the event for later
-
-  // Add event listener to the body or any element to trigger the install prompt on user interaction
-  document.body.addEventListener("click", () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt(); // Show the install prompt
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === "accepted") {
-          console.log("User installed the app");
-        } else {
-          console.log("User dismissed the install prompt");
-        }
-        deferredPrompt = null; // Clear the deferred prompt
-      });
-    }
-  });
-});
 
 window.onload = () => {
   filterArr("All");
