@@ -1,10 +1,10 @@
 {
     "name": "My To-Do List",
-    "short_name": "Tasks",
+    "short_name": "Todos",
     "start_url": "./index.html",
     "display": "standalone",
-    "background_color": "#f4f4f4",
-    "theme_color": "#ff6600",
+    "background_color": "#506eec",
+    "theme_color": "#ffffff",
     "icons": [
       {
         "src": "icons/icon-512x512.png",
