@@ -13,7 +13,6 @@ const formattedDate = new Date().toLocaleDateString("en-US", {
   day: "numeric",
   month: "short",
 });
-
 let localArr = JSON.parse(localStorage.getItem("localArr")) || [];
 function inputPopup() {
   popUp.style.display === "none" && sheet.style.display === "none"
@@ -52,7 +51,7 @@ function pushToLocal() {
 function render(filteredArr) {
   let html = "";
   if (filteredArr.length === 0) {
-    html += `<img src="empty.png" style="position:absolute; top:50%;">`;
+    html += `<img src="icons/empty.png" style="position:absolute; top:50%;">`;
   } else {
     filteredArr.forEach((el) => {
       html += `<div class="taskDiv"  id="task-${el.id}">

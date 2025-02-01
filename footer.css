@@ -55,7 +55,7 @@
   width: clamp(14px, 4vw, 32px);
   height: clamp(14px, 4vw, 32px);
   border-radius: 50%;
-  border: 1px solid #b9b8c3;
+  border: 1px solid #b0afb9;
   transition: all 0.2s ease;
 }
 
