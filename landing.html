@@ -82,34 +82,6 @@
       <button id="install-btn">Download</button>
     </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        let deferredPrompt;
-        const installBtn = document.getElementById("install-btn");
-
-        // Listen for the beforeinstallprompt event
-        window.addEventListener("beforeinstallprompt", (event) => {
-          console.log("beforeinstallprompt event triggered"); // Debugging line
-          event.preventDefault();
-          deferredPrompt = event;
-          installBtn.style.display = "inline-block"; // Make the button visible
-        });
-
-        installBtn.addEventListener("click", () => {
-          if (deferredPrompt) {
-            deferredPrompt.prompt();
-            deferredPrompt.userChoice.then((choiceResult) => {
-              if (choiceResult.outcome === "accepted") {
-                console.log("User installed the app");
-                installBtn.innerText = "Downloaded"; // Change the button text
-                installBtn.style.backgroundColor = "#506eec"; // Turn button blue
-                installBtn.disabled = true; // Disable the button after installation
-              }
-              deferredPrompt = null;
-            });
-          }
-        });
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
