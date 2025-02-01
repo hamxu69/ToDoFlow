@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   let deferredPrompt; // Declare variable for the install prompt
+  const heading = document.getElementById('heading');
+  const description = document.getElementById('description');
+  const installBtn = document.getElementById('install-btn');
 
   // Listen for the beforeinstallprompt event
   window.addEventListener('beforeinstallprompt', (event) => {
@@ -9,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     deferredPrompt = event;
     
     // Show the install button
-    const installBtn = document.getElementById('install-btn');
     installBtn.style.display = 'block'; // Show the install button when the event is fired
     
     // Listen for the button click to trigger the install prompt
@@ -21,6 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
       deferredPrompt.userChoice.then((choiceResult) => {
         if (choiceResult.outcome === 'accepted') {
           console.log('User accepted the A2HS prompt');
+          
+          // Change the text content after installation
+          heading.textContent = 'Thank you for installing the app!';
+          description.textContent = 'We appreciate your support!';
+          installBtn.style.display = 'none'; // Hide the install button after installation
         } else {
           console.log('User dismissed the A2HS prompt');
         }
@@ -33,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Optional: Show the install button after user scrolls
   document.addEventListener('scroll', () => {
     if (deferredPrompt) {
-      const installBtn = document.getElementById('install-btn');
       installBtn.style.display = 'block'; // Show the button after scroll
     }
   });
@@ -41,11 +47,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // Alternatively, you can show the install button after a tap event
   document.addEventListener('tap', () => {
     if (deferredPrompt) {
-      const installBtn = document.getElementById('install-btn');
       installBtn.style.display = 'block'; // Show the button after tap
     }
   });
+
+  // Check if the app is already installed (using a flag or checking app installation status)
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+    heading.textContent = 'Thank you for installing the app!';
+    description.textContent = 'We appreciate your support!';
+    installBtn.style.display = 'none'; // Hide the install button if the app is already installed
+  }
 });
+
 const checkBox = document.querySelector("#checkBox");
 const sheet = document.querySelector("#sheet");
 const popUp = document.querySelector("#popUp");
@@ -99,7 +112,7 @@ function pushToLocal() {
 function render(filteredArr) {
   let html = "";
   if (filteredArr.length === 0) {
-    html += `<img src="icons/empty.png" style="position:absolute; top:50%;">`;
+    html += `<img src="icons/notask.png" style="position:absolute; top:50%;">`;
   } else {
     filteredArr.forEach((el) => {
       html += `<div class="taskDiv"  id="task-${el.id}">

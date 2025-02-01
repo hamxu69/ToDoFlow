@@ -12,7 +12,7 @@
 
 .taskList::-webkit-scrollbar {
   width: 10px;
-  background-color: white;
+  background-color: #ffffff;
 }
 
 .taskList::-webkit-scrollbar-thumb {
@@ -311,4 +311,3 @@ svg:active {
   backdrop-filter: blur(3px);
   z-index: 1;
 }
-

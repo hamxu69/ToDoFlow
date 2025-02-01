@@ -30,6 +30,10 @@
         border-radius: 15px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         text-align: center;
+        display: flex ;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
         max-width: 500px;
       }
 
@@ -77,8 +81,8 @@
   </head>
   <body>
     <div class="container">
-      <h1>Welcome to Our To-Do App!</h1>
-      <p>Download our app to keep track of your tasks.</p>
+      <h1 id="heading">Welcome to Our To-Do App!</h1>
+      <p id="description">Download our app to keep track of your tasks.</p>
       <button id="install-btn">Download</button>
     </div>
     <script src="script.js"></script>
