@@ -50,7 +50,7 @@ function pushToLocal() {
   filteredCount();
 }
 function render(filteredArr) {
-  let html = '';
+  let html = "";
   if (filteredArr.length === 0) {
     html += `<img src="empty.png" style="position:absolute; top:50%;">`;
   } else {
@@ -202,11 +202,34 @@ function showWarningPopup() {
 inputValue.addEventListener("input", function () {
   this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);
 });
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("service-worker.js")
+    .then(() => console.log("Service Worker Registered"))
+    .catch((err) => console.log("Service Worker Failed", err));
+}
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault(); // Prevent the default install banner
+  deferredPrompt = event; // Store the event for later
+
+  // Add event listener to the body or any element to trigger the install prompt on user interaction
+  document.body.addEventListener("click", () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt(); // Show the install prompt
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === "accepted") {
+          console.log("User installed the app");
+        } else {
+          console.log("User dismissed the install prompt");
+        }
+        deferredPrompt = null; // Clear the deferred prompt
+      });
+    }
+  });
+});
+
 window.onload = () => {
   filterArr("All");
 };
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("service-worker.js")
-    .then(() => console.log("Service Worker Registered"))
-    .catch(err => console.log("Service Worker Failed", err));
-}
