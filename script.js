@@ -1,17 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-  let deferredPrompt; // Declare variable for the install prompt
+  let deferredPrompt; 
   const heading = document.getElementById('heading');
   const description = document.getElementById('description');
   const installBtn = document.getElementById('install-btn');
 
-  // Listen for the beforeinstallprompt event
   window.addEventListener('beforeinstallprompt', (event) => {
-    // Prevent the default install prompt
     event.preventDefault();
-    // Store the event so it can be triggered later
     deferredPrompt = event;
     
-    // Show the install button
     installBtn.style.display = 'block'; // Show the install button when the event is fired
     
     // Listen for the button click to trigger the install prompt
@@ -24,38 +20,33 @@ document.addEventListener('DOMContentLoaded', () => {
         if (choiceResult.outcome === 'accepted') {
           console.log('User accepted the A2HS prompt');
           
-          // Change the text content after installation
           heading.textContent = 'Thank you for installing the app!';
           description.textContent = 'We appreciate your support!';
           installBtn.style.display = 'none'; // Hide the install button after installation
         } else {
           console.log('User dismissed the A2HS prompt');
         }
-        // Reset the deferredPrompt variable
         deferredPrompt = null;
       });
     });
   });
 
-  // Optional: Show the install button after user scrolls
   document.addEventListener('scroll', () => {
     if (deferredPrompt) {
-      installBtn.style.display = 'block'; // Show the button after scroll
+      installBtn.style.display = 'block'; 
     }
   });
 
-  // Alternatively, you can show the install button after a tap event
   document.addEventListener('tap', () => {
     if (deferredPrompt) {
-      installBtn.style.display = 'block'; // Show the button after tap
+      installBtn.style.display = 'block';
     }
   });
 
-  // Check if the app is already installed (using a flag or checking app installation status)
   if (window.matchMedia('(display-mode: standalone)').matches) {
     heading.textContent = 'Thank you for installing the app!';
     description.textContent = 'We appreciate your support!';
-    installBtn.style.display = 'none'; // Hide the install button if the app is already installed
+    installBtn.style.display = 'none';
   }
 });
 
