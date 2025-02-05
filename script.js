@@ -103,7 +103,7 @@ function pushToLocal() {
 function render(filteredArr) {
   let html = "";
   if (filteredArr.length === 0) {
-    html += `<img src="icons/notask.png" style="position:absolute; top:50%;">`;
+    html += `<img src="notask.png" style="position:absolute; top:50%;">`;
   } else {
     filteredArr.forEach((el) => {
       html += `<div class="taskDiv"  id="task-${el.id}">
