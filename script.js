@@ -138,6 +138,13 @@ function actionPopup() {
     filteredArr.push(taskDetails);
     localStorage.setItem("tasks", JSON.stringify(filteredArr));
     filterTasks("all");
+    taskNameInput.value = "";
+    startTimeInput.value = "";
+    deadlineTimeInput.value = "";
+
+    // Deselect category and aura buttons
+    selectedCategory.classList.remove("selected");
+    selectedAura.classList.remove("selected");
   } else {
     document.getElementById("inputDiv").style.display = "none";
     showPopup("enterDiv");
