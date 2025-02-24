@@ -3,9 +3,7 @@ self.addEventListener("install", (event) => {
     caches.open("todo-app-cache").then((cache) => {
       return cache.addAll([
         "./landing.html",
-        "./footer.css",
-        "./header.css",
-        "./Responsive.css",
+        "./style.css",
         "./script.js",
         "./manifest.json",
         "./icons/icon-app.png",
