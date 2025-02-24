@@ -3,90 +3,247 @@
   <head>
     <title>Todos</title>
     <meta charset="UTF-8" />
-    <link rel="manifest" href="manifest.json">
-    <link type="image/png" sizes="16x16" rel="icon" href="icons/icons8-checkmark-glyph-neue-114.png
-    "> <link type="image/png" sizes="32x32" rel="icon" href="icons/icons8-checkmark-glyph-neue-114.png
-    -checkmark-glyph-neue-32.png"> <link type="image/png" sizes="96x96" rel="icon" href="icons/icons8-checkmark-glyph-neue-114.png
-    -checkmark-glyph-neue-96.png"> <link type="image/png" sizes="120x120" rel="icon" href="icons/icons8-checkmark-glyph-neue-114.png
-    -checkmark-glyph-neue-120.png"> <link type="image/png" sizes="72x72" rel="icon" href="icons/icons8-checkmark-glyph-neue-114.png
-    -checkmark-glyph-neue-72.png"> <link type="image/png" sizes="96x96" rel="icon" href="icons/icons8-checkmark-glyph-neue-114.png
-    -checkmark-glyph-neue-96.png"> <link type="image/png" sizes="144x144" rel="icon" href="icons/icons8-checkmark-glyph-neue-114.png
-    -checkmark-glyph-neue-144.png"> <link type="image/png" sizes="192x192" rel="icon" href="icons/icons8-checkmark-glyph-neue-114.png
-    -checkmark-glyph-neue-192.png"> <link type="image/png" sizes="512x512" rel="icon" href="icons/icons8-checkmark-glyph-neue-114.png
-    -checkmark-glyph-neue-512.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json" />
+    <link
+      type="image/png"
+      sizes="16x16"
+      rel="icon"
+      href="icons/icons8-checkmark-glyph-neue-114.png
+    "
+    />
+    <link
+      type="image/png"
+      sizes="32x32"
+      rel="icon"
+      href="icons/icons8-checkmark-glyph-neue-114.png
+    -checkmark-glyph-neue-32.png"
+    />
+    <link
+      type="image/png"
+      sizes="96x96"
+      rel="icon"
+      href="icons/icons8-checkmark-glyph-neue-114.png
+    -checkmark-glyph-neue-96.png"
+    />
+    <link
+      type="image/png"
+      sizes="120x120"
+      rel="icon"
+      href="icons/icons8-checkmark-glyph-neue-114.png
+    -checkmark-glyph-neue-120.png"
+    />
+    <link
+      type="image/png"
+      sizes="72x72"
+      rel="icon"
+      href="icons/icons8-checkmark-glyph-neue-114.png
+    -checkmark-glyph-neue-72.png"
+    />
+    <link
+      type="image/png"
+      sizes="96x96"
+      rel="icon"
+      href="icons/icons8-checkmark-glyph-neue-114.png
+    -checkmark-glyph-neue-96.png"
+    />
+    <link
+      type="image/png"
+      sizes="144x144"
+      rel="icon"
+      href="icons/icons8-checkmark-glyph-neue-114.png
+    -checkmark-glyph-neue-144.png"
+    />
+    <link
+      type="image/png"
+      sizes="192x192"
+      rel="icon"
+      href="icons/icons8-checkmark-glyph-neue-114.png
+    -checkmark-glyph-neue-192.png"
+    />
+    <link
+      type="image/png"
+      sizes="512x512"
+      rel="icon"
+      href="icons/icons8-checkmark-glyph-neue-114.png
+    -checkmark-glyph-neue-512.png"
+    />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="header.css" />
-    <link rel="stylesheet" href="Responsive.css" />
-    <link rel="stylesheet" href="footer.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="warningPopup" class="warning-popup">
-      Please enter a task!
-    </div>
-    <div id="popup" class="pop">
-      Task Added successfully
-    </div>
-    <div class="popup-overlay" id="sheet" style="display: none"></div>
-    <div class="popup" id="popUp" style="display: none">
-      <div class="header2">
-        <p>Add Task</p>
+    <div class="container">
+      <div class="header">
+        <div class="stats">
+          <div class="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+              width="20"
+              height="20"
+            >
+              <path
+                fill="#ffffff"
+                d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+              />
+            </svg>
+          </div>
+          <div class="date-points">5 May</div>
+          <img
+            src="icon.jpg"
+            style="
+              height: 40px;
+              width: 40px;
+              border-radius: 50%;
+              object-fit: cover;
+            "
+          />
+        </div>
+        <div class="task-bar">
+          <div class="task-info">
+            <div>Today</div>
+            <div class="aura-count">60+ Aura</div>
+          </div>
+          <button class="add-btn" onclick="inputPopup()">Set Your Quest</button>
+        </div>
       </div>
       <div class="content">
-        <label for="taskText">Task Title (Max 30 chars):</label>
-        <input
-          type="text"
-          id="taskText"
-          class="input"
-          placeholder="Enter your task..."
-          maxlength="30"
-        />
-
-        <label for="taskCategory">Category:</label>
-        <select id="taskCategory" class="select">
-          <option value="" hidden>Select Category</option>
-          <option value="Personal">Personal</option>
-          <option value="Work">Work</option>
-          <option value="Hobbies">Hobbies</option>
-        </select>
-      </div>
-      <div class="buttons">
-        <button class="btn add" onclick="addTask()">Add</button>
-        <button class="btn cancel" onclick="inputPopup()">Cancel</button>
-      </div>
-    </div>
-    <div class="parent">
-      <div class="header">
-        <div class="dateInput">
-          <div class="date">
-            <p class="task-td">Today's Task</p>
-            <p class="date-update" id="date"></p>
+        <div class="header-text">
+          <div class="date-box">
+            <div class="day">Mon</div>
+            <div class="date">5</div>
           </div>
-          <button class="inputBtn" onclick="inputPopup()">+ New Task</button>
-        </div>
-        <div class="categories">
-          <button id="All" onclick="filterArr('All')">
-            All<span id="allCount">0</span>
-          </button>
-          <button id="Personal" onclick="filterArr('Personal')">
-            Personal <span id="personalCount">0</span>
-          </button>
-          <button id="Work" onclick="filterArr('Work')">
-            Work <span id="workCount">0</span>
-          </button>
-          <button id="Hobbies" onclick="filterArr('Hobbies')">
-            Hobbies <span id="hobbiesCount">0</span>
-          </button>
-        </div>
-      </div>
+          <div class="justDoIt hidden">
+            <div
+              class="date-box"
+              style="
+                display: flex;
+                height: 80px;
+                width: 85%;
+                justify-content: center;
+              "
+            >
+              <div class="day">JUST</div>
+            </div>
+            <div
+              class="date-box"
+              style="
+                display: flex;
+                height: 80px;
+                width: 85%;
+                justify-content: center;
+              "
+            >
+              <div class="day">DO</div>
+            </div>
+            <div
+              class="date-box"
+              style="
+                display: flex;
+                height: 80px;
+                width: 85%;
+                justify-content: center;
+              "
+            >
+              <div class="day">IT</div>
+            </div>
+          </div>
 
-      <div class="footer">
-        <div class="taskList" id="taskAppend"></div>
+          <div class="nav-section" onclick="toggle()">
+            <nav>
+              <label for="touch" class="dropdown-label" onclick="toggle()">
+                All Quests<span class="task-count">69</span>
+              </label>
+              <input type="checkbox" id="touch" />
+              <ul class="dropdown-menu">
+                <li data-category="all" onclick="filterTasks('all')">
+                  <a href="#">All</a>
+                </li>
+                <li data-category="work" onclick="filterTasks('Work')">
+                  <a href="#">Work</a>
+                </li>
+                <li data-category="personal" onclick="filterTasks('Personal')">
+                  <a href="#">Personal</a>
+                </li>
+                <li data-category="passion" onclick="filterTasks('Passion')">
+                  <a href="#">Passion</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <div class="task-list" id="taskList"></div>
+      </div>
+      <div class="sheet" id="overlay">
+        <div class="input-popup" id="inputDiv">
+          <h2>"Lay Down the Plan"</h2>
+
+          <input
+            type="text"
+            placeholder="Label your next move..."
+            class="task-name"
+          />
+
+          <!-- Time Selection -->
+          <div class="time-selection">
+            <label>The Chosen Start</label>
+            <input type="time" class="start-time" />
+            <label>Final Hour</label>
+            <input type="time" class="deadline-time" />
+          </div>
+
+          <!-- Category Selection -->
+          <div class="category-section">
+            <label class="category-label">The Path You Walk</label>
+            <div class="categories">
+              <button class="category-btn" onclick="selectCategory(this)">
+                Work
+              </button>
+              <button class="category-btn" onclick="selectCategory(this)">
+                Personal
+              </button>
+              <button class="category-btn" onclick="selectCategory(this)">
+                Passion
+              </button>
+            </div>
+          </div>
+
+          <!-- Task Aura Points Selection -->
+          <div class="aura-section">
+            <label class="aura-label">The Weight of Your Resolve</label>
+            <div class="aura-levels">
+              <button class="aura-btn" onclick="selectAura(this)">
+                Low Diff (10+ aura)
+              </button>
+              <button class="aura-btn" onclick="selectAura(this)">
+                Mid Diff (40+ aura)
+              </button>
+              <button class="aura-btn" onclick="selectAura(this)">
+                High Diff (100+ aura)
+              </button>
+            </div>
+          </div>
+
+          <button class="add-task-btn" onclick="actionPopup()">Add Task</button>
+        </div>
+        <!-- Task Added Popup -->
+        <div class="task-added-popup" id="successDiv">
+          <p>Objective secured. Task deployed.</p>
+        </div>
+
+        <!-- Enter Input Warning Popup -->
+        <div class="enter-input-popup" id="enterDiv">
+          <p>Something’s missing—heaven’s doing?</p>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>
-  
   </body>
 </html>
