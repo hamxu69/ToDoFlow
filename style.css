@@ -92,6 +92,7 @@ body {
 }
 
 .header-text {
+  justify-content: space-evenly;
   display: flex;
   gap: 10px;
   padding: 20px 10px 0;
