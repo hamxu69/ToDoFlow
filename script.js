@@ -8,21 +8,17 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     deferredPrompt = event;
 
-    installBtn.style.display = "block"; // Show the install button when the event is fired
-
-    // Listen for the button click to trigger the install prompt
+    installBtn.style.display = "block";
     installBtn.addEventListener("click", () => {
-      // Show the install prompt
       deferredPrompt.prompt();
 
-      // Wait for the user to respond to the prompt
       deferredPrompt.userChoice.then((choiceResult) => {
         if (choiceResult.outcome === "accepted") {
           console.log("User accepted the A2HS prompt");
 
           heading.textContent = "Thank you for installing the app!";
           description.textContent = "We appreciate your support!";
-          installBtn.style.display = "none"; // Hide the install button after installation
+          installBtn.style.display = "none";
         } else {
           console.log("User dismissed the A2HS prompt");
         }
@@ -54,7 +50,6 @@ const popup = document.getElementById("inputDiv");
 const overlay = document.getElementById("overlay");
 const tasklist = document.getElementById("taskList");
 
-// Date function to update day and date dynamically
 function dates() {
   const today = new Date();
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -84,16 +79,12 @@ function dates() {
       `;
 }
 
-// Function to generate unique ID for each task
 let newId = function generateID() {
   return Math.floor(100 + Math.random() * 900).toString();
 };
 
-// Initialize filtered array for tasks, get it from localStorage if available
 let filteredArr = JSON.parse(localStorage.getItem("tasks")) || [];
-// Update the total aura displayed in the UI
 
-// Function to show input popup for adding a task
 function inputPopup() {
   const justDoItDiv = document.querySelector(".justDoIt");
   popup.style.display = "flex";
@@ -103,15 +94,16 @@ function inputPopup() {
   overlay.style.visibility = "visible";
 }
 
-// Function to handle task creation from popup
 function actionPopup() {
-  const taskName = document.querySelector(".task-name").value.trim();
-  const startTime = formatTime(document.querySelector(".start-time").value);
-  const deadlineTime = formatTime(
-    document.querySelector(".deadline-time").value
-  );
-  const selectedCategory = document.querySelector(".category-btn.selected");
-  const selectedAura = document.querySelector(".aura-btn.selected");
+  let taskNameInput = document.querySelector(".task-name");
+  let startTimeInput = document.querySelector(".start-time");
+  let deadlineTimeInput = document.querySelector(".deadline-time");
+  let selectedCategory = document.querySelector(".category-btn.selected");
+  let selectedAura = document.querySelector(".aura-btn.selected");
+
+  let taskName = taskNameInput.value.trim();
+  let startTime = formatTime(startTimeInput.value);
+  let deadlineTime = formatTime(deadlineTimeInput.value);
 
   if (
     taskName &&
@@ -132,17 +124,17 @@ function actionPopup() {
       deadlineTime,
       category: selectedCategory.textContent.trim(),
       aura: Number(auraValue),
-      checkStatus: "unchecked", // Initially tasks are unchecked
+      checkStatus: "unchecked",
     };
 
     filteredArr.push(taskDetails);
     localStorage.setItem("tasks", JSON.stringify(filteredArr));
     filterTasks("all");
+
     taskNameInput.value = "";
     startTimeInput.value = "";
     deadlineTimeInput.value = "";
 
-    // Deselect category and aura buttons
     selectedCategory.classList.remove("selected");
     selectedAura.classList.remove("selected");
   } else {
@@ -151,7 +143,6 @@ function actionPopup() {
   }
 }
 
-// Function to format time to AM/PM format
 function formatTime(time) {
   if (!time) return "";
   let [hours, minutes] = time.split(":").map(Number);
@@ -160,7 +151,6 @@ function formatTime(time) {
   return `${hours}:${minutes.toString().padStart(2, "0")} ${ampm}`;
 }
 
-// Function to display success or error popup
 function showPopup(popupId) {
   const popupT = document.getElementById(popupId);
   popupT.style.opacity = "1";
@@ -182,7 +172,6 @@ function showPopup(popupId) {
   }
 }
 
-// Function to close the warning popup
 function closePopup() {
   document.getElementById("warningDiv").style.opacity = "0";
   document.getElementById("warningDiv").style.visibility = "hidden";
@@ -196,7 +185,6 @@ function closePopup() {
   }
 }
 
-// Function to select a category button for a task
 function selectCategory(button) {
   document
     .querySelectorAll(".category-btn")
@@ -204,7 +192,6 @@ function selectCategory(button) {
   button.classList.add("selected");
 }
 
-// Function to select an aura button for a task
 function selectAura(button) {
   document
     .querySelectorAll(".aura-btn")
@@ -212,39 +199,31 @@ function selectAura(button) {
   button.classList.add("selected");
 }
 function filterTasks(category) {
-  console.log("Selected category:", category); // Debugging line
-
-  // Get the dropdown label element
+  console.log("Selected category:", category);
   const dropdownLabel = document.querySelector(".dropdown-label");
 
-  // Update the label text with the selected category
   dropdownLabel.innerHTML = `${
     category.charAt(0).toUpperCase() + category.slice(1)
   } <span class="task-count">69</span>`;
 
-  // Filter tasks based on the selected category
   const filteredTasks =
     category === "all"
       ? filteredArr
       : filteredArr.filter((task) => task.category === category);
 
-  // Update the task count
   updateTaskCount(filteredTasks);
 
-  // Render the tasks based on the filtered list
   render(filteredTasks);
 
-  // Close the dropdown menu (optional)
   document.getElementById("touch").checked = false;
 }
 
 function updateTaskCount(filteredTasks) {
   const taskCountElement = document.querySelector(".task-count");
   if (taskCountElement) {
-    taskCountElement.innerText = filteredTasks.length; // Update task count
+    taskCountElement.innerText = filteredTasks.length;
   }
 }
-// Function to render tasks to the UI
 function render(filtered) {
   let html = "";
   if (filtered.length === 0) {
@@ -284,19 +263,16 @@ function render(filtered) {
   tasklist.innerHTML = html;
 }
 
-// Function to toggle the task's completion status and update aura
 let totalAura = Number(localStorage.getItem("totalAura")) || 0;
 
-// Update the total aura displayed in the UI and save it to localStorage
 function updateAuraCount(auraChange) {
-  totalAura += auraChange; // Update total aura count
+  totalAura += auraChange;
   const auraElement = document.querySelector(".aura-count");
 
   if (auraElement) {
-    auraElement.innerText = `${totalAura}+ Aura`; // Display the aura count in the UI
+    auraElement.innerText = `${totalAura}+ Aura`;
   }
 
-  // Save the updated aura count to localStorage
   localStorage.setItem("totalAura", totalAura);
 }
 function toggleStatus(event) {
@@ -309,41 +285,35 @@ function toggleStatus(event) {
     const aura = task.aura;
 
     if (checkbox.checked) {
-      // Add aura when checked
       task.checkStatus = "checked";
-      updateAuraCount(aura); // Update the UI with the new aura count
+      updateAuraCount(aura);
     } else {
-      // Subtract aura when unchecked
       task.checkStatus = "unchecked";
-      updateAuraCount(-aura); // Update the UI with the subtracted aura count
+      updateAuraCount(-aura);
     }
 
-    // Update the task's check status in the array and localStorage
     localStorage.setItem("tasks", JSON.stringify(filteredArr));
   }
 }
 
-// Function to delete a task from the list
 function deleteTask(taskId) {
   const taskIndex = filteredArr.findIndex((task) => task.id === taskId);
   if (taskIndex !== -1) {
     const task = filteredArr[taskIndex];
     const taskAura = task.aura;
 
-    // Remove the task from the array
     filteredArr.splice(taskIndex, 1);
     localStorage.setItem("tasks", JSON.stringify(filteredArr));
     filterTasks("all");
   }
 }
 
-// Initialize date, aura, and render tasks
 dates();
 document.addEventListener("DOMContentLoaded", function () {
   filterTasks("all");
   const auraElement = document.querySelector(".aura-count");
   if (auraElement) {
-    auraElement.innerText = `${totalAura}+ Aura`; // Display aura count from localStorage
+    auraElement.innerText = `${totalAura}+ Aura`;
   }
 });
 function toggle() {
@@ -353,20 +323,17 @@ function toggle() {
     justDoItDiv.style.opacity === "0" ||
     justDoItDiv.style.display === "none"
   ) {
-    justDoItDiv.style.display = "flex"; // Make it visible first
+    justDoItDiv.style.display = "flex";
 
     justDoItDiv.style.opacity = "1";
     justDoItDiv.style.transform = "translateY(0)";
-    // Small delay to allow transition to take effect
   } else {
     justDoItDiv.style.opacity = "0";
     justDoItDiv.style.transform = "translateY(-10px)";
     justDoItDiv.style.display = "none";
-    // Wait for transition before hiding
   }
 }
 
-// Apply initial styles when page loads
 document.addEventListener("DOMContentLoaded", () => {
   const justDoItDiv = document.querySelector(".justDoIt");
   justDoItDiv.style.position = "absolute";
@@ -376,7 +343,7 @@ document.addEventListener("DOMContentLoaded", () => {
   justDoItDiv.style.opacity = "0";
   justDoItDiv.style.transform = "translateY(-10px)";
   justDoItDiv.style.transition = "opacity 0.3s ease, transform 0.3s ease";
-  justDoItDiv.style.display = "none"; // Ensure it's hidden initially
+  justDoItDiv.style.display = "none";
 });
 
 inputValue.addEventListener("input", function () {
