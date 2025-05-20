@@ -227,7 +227,7 @@ function updateTaskCount(filteredTasks) {
 function render(filtered) {
   let html = "";
   if (filtered.length === 0) {
-    html += `<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: bold; text-align: center; font-size: 20px; color:rgb(119, 117, 117);">Behold, there are no tasks left in your realm of responsibility.</div>`;
+    html += `<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: bold; text-align: center; font-size: 20px; color:#456b70;">Behold, there are no tasks left in your realm of responsibility.</div>`;
   } else {
     filtered.forEach((el) => {
       html += `<div class="task" id="task-${el.id}">
