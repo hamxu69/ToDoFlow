@@ -177,7 +177,7 @@ nav {
 
 #touch:checked + .dropdown-menu {
     height: 308px;
-    border-top: 2px solid #1659b4; /* Thicker top border */
+    border-top: 2px solid #B3EBF2; /* Thicker top border */
     border-right: 1px solid rgba(0, 0, 0, 0.507);
     border-bottom: 1px solid  rgba(0, 0, 0, 0.507);
     border-left: 1px solid  rgba(0, 0, 0, 0.507);
@@ -301,12 +301,12 @@ nav {
   transform: scaleX(0);
 }
 .checkbox-wrapper-15 .cbx:hover span:first-child {
-  border-color: #3c53c7;
+  border-color: #B3EBF2;
 }
 
 .checkbox-wrapper-15 .inp-cbx:checked + .cbx span:first-child {
-  border-color: #3c53c7;
-  background: #3c53c7;
+  border-color: #B3EBF2;
+  background: #B3EBF2;
   animation: check-15 0.6s ease;
 }
 
@@ -321,7 +321,7 @@ nav {
 }
 
 .checkbox-wrapper-15 .inp-cbx:checked + .cbx span:last-child {
-  color: #8b8b91;
+  color: #456b70;
   transition: all 0.3s ease;
 }
 .checkbox-wrapper-15 .inp-cbx:checked + .cbx span:last-child:after {

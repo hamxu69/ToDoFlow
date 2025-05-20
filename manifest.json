@@ -4,7 +4,7 @@
   "start_url": "./landing.html",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#3652c0",
+  "theme_color": "#B3EBF2",
   "icons": [
     {
       "src": "icons/icon-app.png",
